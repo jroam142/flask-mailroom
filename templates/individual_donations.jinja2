@@ -1,0 +1,36 @@
+{% extends "base.jinja2" %}
+
+{% block subtitle %}
+Individual Total Donations
+{% endblock subtitle %}
+
+{% block content %}
+    <form method="POST">
+        <p>Enter donor's name or type 'all' to view all donors in database.</p>
+        <input type='text' name='donor-name'>
+        <br/>
+        <input type='submit' value="Find Donor's Donations!">
+    </form>
+
+    {% if post %}
+    {% if all_donations %}
+
+    <p>{{ donor_name }}</p>
+
+    <ul>
+    {% for donation in all_donations %}
+    <li>{{ donation }}</li>
+    {% endfor %}
+
+    {% else %}
+    <p>{{ donor_name }} could not be found</p>
+    {% endif %}
+
+    {% else %}
+    <ul>
+    {% for donor in all_donors %}
+    <li>{{ donor.name }}</li>
+    {% endfor %}
+    {% endif %}
+
+{% endblock content %}
