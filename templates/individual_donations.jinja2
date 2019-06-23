@@ -19,7 +19,7 @@ Individual Total Donations
 
     <ul>
     {% for donation in all_donations %}
-    <li>{{ donation }}</li>
+    <li>{{ donation.value }}</li>
     {% endfor %}
 
     {% else %}
